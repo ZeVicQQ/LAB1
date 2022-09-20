@@ -1,0 +1,17 @@
+#!/bin/bash
+
+read -p "Input repository: " link
+cd /home/zevic/Downloads
+
+git clone $link
+New_F="$(ls -tr | tail)"
+mkdir /home/zevic/test
+
+chmod 777 /home/zevic/Downloads/*
+mv /home/zevic/Downloads/"${New_F}"/* /home/zevic/test
+chmod 700 /home/zevic/test/"${New_F}"/*
+
+rm -rf /home/zevic/Downloads/"${New_F}"
+chmod 600 -R /home/zevic/test
+
+echo "Лабораторная работа 1 выполнена"
